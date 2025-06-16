@@ -2,7 +2,6 @@ from selenium.webdriver.common.by import By
 
 BASE_URL = "https://stellarburgers.nomoreparties.site"
 
-
 class MainPage:
     # Кнопки/ссылки в шапке
     LOGIN_BTN = (By.XPATH, "//button[text()='Войти в аккаунт']")
@@ -14,3 +13,4 @@ class MainPage:
     TAB_BUNS = (By.XPATH, "//span[text()='Булки']/parent::*")
     TAB_SAUCES = (By.XPATH, "//span[text()='Соусы']/parent::*")
     TAB_FILLINGS = (By.XPATH, "//span[text()='Начинки']/parent::*")
+    CONSTRUCTOR_HEADER = (By.XPATH,"//h1[contains(text(),'Соберите бургер')]")

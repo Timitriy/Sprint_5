@@ -1,14 +1,10 @@
 from faker import Faker
 
-fake = Faker("ru_RU")
-
+_fake = Faker("ru_RU")
 
 def random_email() -> str:
-    """Генерирует уникальный email в требуемом формате."""
-    base = f"{fake.first_name().lower()}{fake.last_name().lower()}_{fake.random_int(100, 999)}"
-    return f"{base}@ya.ru"
+    """Уникальный e-mail вида ivan_123@ya.ru"""
+    return f"{_fake.user_name()}_{_fake.random_int(100, 999)}@ya.ru"
 
-
-def random_password() -> str:
-    """Пароль ≥ 6 символов: буквы + цифры."""
-    return fake.password(length=10, special_chars=False)
+def random_password(min_len: int = 8) -> str:
+    return _fake.password(length=max(min_len, 6), special_chars=False)
